@@ -2310,7 +2310,7 @@ connect_pad (GstDecodeBin * dbin, GstElement * src, GstDecodePad * dpad,
     if ((gst_element_set_state (element,
                 GST_STATE_READY)) == GST_STATE_CHANGE_FAILURE) {
       GstMessage *error_msg;
-
+     //不能激活pad,将element去除
       GST_WARNING_OBJECT (dbin, "Couldn't set %s to READY",
           GST_ELEMENT_NAME (element));
       remove_error_filter (dbin, element, &error_msg);
