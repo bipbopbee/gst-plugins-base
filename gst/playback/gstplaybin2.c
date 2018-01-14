@@ -2003,7 +2003,7 @@ no_channels:
     return FALSE;
   }
 }
-
+//设置选择的播放音轨
 static gboolean
 gst_play_bin_set_current_audio_stream (GstPlayBin * playbin, gint stream)
 {
@@ -2026,7 +2026,7 @@ gst_play_bin_set_current_audio_stream (GstPlayBin * playbin, gint stream)
     sinkpad = NULL;
   } else {
     /* take channel from selected stream */
-    sinkpad = g_ptr_array_index (channels, stream);
+    sinkpad = g_ptr_array_index (channels, stream);//获取音轨的pad
   }
 
   if (sinkpad)
@@ -2395,7 +2395,7 @@ gst_play_bin_set_property (GObject * object, guint prop_id,
     case PROP_CURRENT_VIDEO:
       gst_play_bin_set_current_video_stream (playbin, g_value_get_int (value));
       break;
-    case PROP_CURRENT_AUDIO:
+    case PROP_CURRENT_AUDIO://使用set选择音轨，应用层传入音轨的ID
       gst_play_bin_set_current_audio_stream (playbin, g_value_get_int (value));
       break;
     case PROP_CURRENT_TEXT:
