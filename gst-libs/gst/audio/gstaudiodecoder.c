@@ -259,6 +259,9 @@ struct _GstAudioDecoderPrivate
   gboolean needs_format;
 
   /* pending serialized sink events, will be sent from finish_frame() */
+  /*sink_event接收到上游的event，缓存起来后，
+  然后等待时机发送，通过gst_pad_push，利用srcpad发送到下游，可以用来等待tag，或等待GST_EVENT_LATENCY
+  */
   GList *pending_events;
 
   /* flags */
