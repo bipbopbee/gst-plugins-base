@@ -2690,10 +2690,10 @@ gst_play_bin_get_property (GObject * object, guint prop_id, GValue * value,
           gst_play_bin_get_current_stream_combiner (playbin,
               &playbin->text_stream_combiner, "text", PLAYBIN_STREAM_TEXT));
       break;
-    case PROP_VOLUME:
+    case PROP_VOLUME://音量控制
       g_value_set_double (value, gst_play_sink_get_volume (playbin->playsink));
       break;
-    case PROP_MUTE:
+    case PROP_MUTE://静音控制
       g_value_set_boolean (value, gst_play_sink_get_mute (playbin->playsink));
       break;
     case PROP_SAMPLE:
