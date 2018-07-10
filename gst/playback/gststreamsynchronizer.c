@@ -551,7 +551,7 @@ gst_stream_synchronizer_sink_event (GstPad * pad, GstObject * parent,
       }
       break;
     }
-    case GST_EVENT_EOS:{
+    case GST_EVENT_EOS:{//只有音视频流全部EOS才发送EOS给下游sink,只有一个EOS，则发送空数据给下游。
       GstSyncStream *stream;
       GList *l;
       gboolean all_eos = TRUE;
